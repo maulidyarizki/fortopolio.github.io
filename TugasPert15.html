@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Interaction</title>
+</head>
+
+<body>
+
+    <script>
+        // Menggunakan alert
+        alert("Selamat datang!");
+
+        // Menggunakan prompt
+        var namaPengguna = prompt("Masukkan nama Anda:", "");
+        alert("Halo, " + namaPengguna + "!");
+
+        // Menggunakan confirm
+        var konfirmasi = confirm("Apakah Anda ingin melanjutkan?");
+        if (konfirmasi) {
+            alert("Anda memilih untuk melanjutkan.");
+        } else {
+            alert("Anda memilih untuk membatalkan.");
+        }
+
+        // Menggunakan form
+        var nilaiForm = prompt("Masukkan nilai Anda:");
+        document.write("<h1>Hasil Form</h1>");
+        document.write("<p>Nilai yang Anda masukkan: " + nilaiForm + "</p>");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deret Bilangan Genap yang Habis Dibagi 3</title>
+</head>
+
+<body>
+    <h1>Deret Bilangan Genap yang Habis Dibagi 3</h1>
+
+    <script>
+        // Input nilai awal dan nilai akhir menggunakan prompt
+        var nilaiAwal = parseInt(prompt("Masukkan nilai awal deret:"));
+        var nilaiAkhir = parseInt(prompt("Masukkan nilai akhir deret:"));
+
+        // Validasi input
+        if (isNaN(nilaiAwal) || isNaN(nilaiAkhir)) {
+            alert("Masukkan nilai numerik untuk nilai awal dan nilai akhir.");
+        } else {
+            // Inisialisasi variabel jumlah dan jumlah nilai
+            var jumlahBilangan = 0;
+            var jumlahNilai = 0;
+
+            // Menampilkan nilai awal dan nilai akhir
+            document.write("<p>Nilai Awal: " + nilaiAwal + "</p>");
+            document.write("<p>Nilai Akhir: " + nilaiAkhir + "</p>");
+
+            // Menampilkan deret bilangan genap yang habis dibagi 3
+            document.write("<p>Deret yang tampil: ");
+            for (var i = nilaiAwal; i <= nilaiAkhir; i++) {
+                if (i % 2 === 0 && i % 3 === 0) {
+                    document.write(i + " ");
+                    jumlahBilangan++;
+                    jumlahNilai += i;
+                }
+            }
+            document.write("</p>");
+
+            // Menampilkan jumlah deret bilangan dan jumlah nilai bilangan
+            document.write("<p>Jumlah deret bilangan: " + jumlahBilangan + " bilangan</p>");
+            document.write("<p>Jumlah nilai bilangan tersebut: " + jumlahNilai + "</p>");
+        }
+    </script>
+</body>
+</html>

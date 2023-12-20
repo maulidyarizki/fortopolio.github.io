@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Kompleks</title>
+    <style>
+        input[type="button"] {
+            width: 50px;
+            height: 50px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Kalkulator Kompleks</h1>
+    <input type="text" id="display" readonly>
+    <br>
+    <script>
+        var currentInput = '';
+        var currentResult = '';
+        var history = '';
+
+        function updateDisplay(value) {
+            document.getElementById('display').value = value;
+        }
+
+        function appendInput(value) {
+            currentInput += value;
+            updateDisplay(currentInput);
+        }
+
+        function clearDisplay() {
+            currentInput = '';
+            updateDisplay('0');
+        }
+
+        function clearAll() {
+            currentInput = '';
+            currentResult = '';
+            history = '';
+            updateDisplay('0');
+        }
+
+        function calculateResult() {
+            try {
+                currentResult = eval(currentInput);
+                history += currentInput + ' = ' + currentResult + '\n';
+                updateDisplay(currentResult);
+                currentInput = '';
+            } catch (error) {
+                updateDisplay('Error');
+            }
+        }
+
+        function showHistory() {
+            alert('History:\n' + history);
+        }
+
+        function backspace() {
+            currentInput = currentInput.slice(0, -1);
+            updateDisplay(currentInput || '0');
+        }
+    </script>
+
+    <!-- Tombol-tombol kalkulator -->
+    <table>
+        <tr>
+            <td><input type="button" value="7" onclick="appendInput('7')"></td>
+            <td><input type="button" value="8" onclick="appendInput('8')"></td>
+            <td><input type="button" value="9" onclick="appendInput('9')"></td>
+            <td><input type="button" value="/" onclick="appendInput('/')"></td>
+            <td><input type="button" value="C" onclick="clearDisplay()"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="appendInput('4')"></td>
+            <td><input type="button" value="5" onclick="appendInput('5')"></td>
+            <td><input type="button" value="6" onclick="appendInput('6')"></td>
+            <td><input type="button" value="-" onclick="appendInput('-')"></td>
+            <td><input type="button" value="CE" onclick="clearAll()"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="appendInput('1')"></td>
+            <td><input type="button" value="2" onclick="appendInput('2')"></td>
+            <td><input type="button" value="3" onclick="appendInput('3')"></td>
+            <td><input type="button" value="+" onclick="appendInput('+')"></td>
+            <td><input type="button" value="=" onclick="calculateResult()"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="appendInput('0')"></td>
+            <td><input type="button" value="." onclick="appendInput('.')"></td>
+            <td><input type="button" value="%" onclick="appendInput('%')"></td>
+            <td><input type="button" value="*" onclick="appendInput('*')"></td>
+            <td><input type="button" value="<-" onclick="backspace()"></td>
+        </tr>
+        <tr>
+            <td colspan="5"><input type="button" value="History" onclick="showHistory()"></td>
+        </tr>
+    </table>
+</body>
+</html>
